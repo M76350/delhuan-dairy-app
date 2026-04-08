@@ -1,0 +1,4 @@
+[
+  {"id":"cyc1","startDate":"2024-01-01","endDate":"2024-01-10","status":"closed"},
+  {"id":"cyc2","startDate":"2024-01-11","endDate":"2024-01-20","status":"active"}
+]

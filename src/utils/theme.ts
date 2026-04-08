@@ -1,0 +1,31 @@
+export const COLORS = {
+  primary: '#2E7D32',
+  primaryLight: '#4CAF50',
+  primaryDark: '#1B5E20',
+  accent: '#FFC107',
+  accentDark: '#F9A825',
+  white: '#FFFFFF',
+  background: '#F1F8F1',
+  card: '#FFFFFF',
+  border: '#E0E0E0',
+  text: '#1A1A1A',
+  textSecondary: '#666666',
+  textLight: '#999999',
+  paid: '#2E7D32',
+  paidBg: '#E8F5E9',
+  unpaid: '#C62828',
+  unpaidBg: '#FFEBEE',
+  morning: '#FF8F00',
+  morningBg: '#FFF8E1',
+  evening: '#1565C0',
+  eveningBg: '#E3F2FD',
+  danger: '#D32F2F',
+  shadow: 'rgba(0,0,0,0.08)',
+};
+
+export const FONTS = {
+  regular: { fontWeight: '400' as const },
+  medium: { fontWeight: '500' as const },
+  semibold: { fontWeight: '600' as const },
+  bold: { fontWeight: '700' as const },
+};

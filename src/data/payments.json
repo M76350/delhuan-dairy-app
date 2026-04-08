@@ -1,0 +1,14 @@
+[
+  {"id":"pay1","farmerId":"f1","cycleId":"cyc1","totalMilk":50,"totalAmount":1945.75,"status":"paid","paymentMode":"UPI","paymentDate":"2024-01-10"},
+  {"id":"pay2","farmerId":"f2","cycleId":"cyc1","totalMilk":17,"totalAmount":500.2,"status":"paid","paymentMode":"Cash","paymentDate":"2024-01-10"},
+  {"id":"pay3","farmerId":"f3","cycleId":"cyc1","totalMilk":29,"totalAmount":1149.05,"status":"paid","paymentMode":"UPI","paymentDate":"2024-01-10"},
+  {"id":"pay4","farmerId":"f4","cycleId":"cyc1","totalMilk":6,"totalAmount":207.9,"status":"paid","paymentMode":"Cash","paymentDate":"2024-01-10"},
+  {"id":"pay5","farmerId":"f5","cycleId":"cyc1","totalMilk":42,"totalAmount":2039.4,"status":"paid","paymentMode":"UPI","paymentDate":"2024-01-10"},
+  {"id":"pay6","farmerId":"f6","cycleId":"cyc1","totalMilk":10,"totalAmount":274.0,"status":"paid","paymentMode":"Cash","paymentDate":"2024-01-10"},
+  {"id":"pay7","farmerId":"f7","cycleId":"cyc1","totalMilk":18,"totalAmount":964.8,"status":"paid","paymentMode":"UPI","paymentDate":"2024-01-10"},
+  {"id":"pay8","farmerId":"f1","cycleId":"cyc2","totalMilk":12,"totalAmount":396.6,"status":"unpaid","paymentMode":null,"paymentDate":null},
+  {"id":"pay9","farmerId":"f2","cycleId":"cyc2","totalMilk":10,"totalAmount":298.0,"status":"unpaid","paymentMode":null,"paymentDate":null},
+  {"id":"pay10","farmerId":"f3","cycleId":"cyc2","totalMilk":13,"totalAmount":514.8,"status":"unpaid","paymentMode":null,"paymentDate":null},
+  {"id":"pay11","farmerId":"f5","cycleId":"cyc2","totalMilk":21,"totalAmount":1011.15,"status":"unpaid","paymentMode":null,"paymentDate":null},
+  {"id":"pay12","farmerId":"f7","cycleId":"cyc2","totalMilk":17,"totalAmount":938.4,"status":"unpaid","paymentMode":null,"paymentDate":null}
+]
