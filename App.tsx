@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, TouchableOpacity } from 'react-native';
 
+import SplashScreen from './src/screens/SplashScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
 import FarmersScreen from './src/screens/FarmersScreen';
@@ -36,11 +37,11 @@ function FarmersStack() {
 function TabIcon({ emoji, label, focused }: { emoji: string; label: string; focused: boolean }) {
   return (
     <View style={{ alignItems: 'center', paddingTop: 2 }}>
-      <Text style={{ fontSize: focused ? 22 : 20, opacity: focused ? 1 : 0.6 }}>{emoji}</Text>
+      <Text style={{ fontSize: focused ? 22 : 20, opacity: focused ? 1 : 0.55 }}>{emoji}</Text>
       <Text style={{
         fontSize: 10, marginTop: 1,
         fontWeight: focused ? '700' : '500',
-        color: focused ? COLORS.primary : COLORS.textLight
+        color: focused ? COLORS.primary : COLORS.textLight,
       }}>{label}</Text>
     </View>
   );
@@ -57,7 +58,9 @@ function MainApp({ user, onLogout }: { user: any; onLogout: () => void }) {
             height: 64, paddingBottom: 8, paddingTop: 4,
             backgroundColor: '#fff',
             borderTopWidth: 1, borderTopColor: '#EEEEEE',
-            elevation: 10, shadowColor: '#000', shadowOffset: { width: 0, height: -2 }, shadowOpacity: 0.08, shadowRadius: 8,
+            elevation: 12, shadowColor: '#000',
+            shadowOffset: { width: 0, height: -3 },
+            shadowOpacity: 0.08, shadowRadius: 10,
           },
           tabBarShowLabel: false,
         }}
@@ -67,7 +70,7 @@ function MainApp({ user, onLogout }: { user: any; onLogout: () => void }) {
           options={{
             headerTitle: () => (
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                <Text style={{ fontSize: 20 }}>🥛</Text>
+                <Text style={{ fontSize: 22 }}>🥛</Text>
                 <View>
                   <Text style={{ color: '#fff', fontWeight: '800', fontSize: 16 }}>Delhuan Dairy</Text>
                   <Text style={{ color: 'rgba(255,255,255,0.7)', fontSize: 10 }}>दिलहुआन डेयरी</Text>
@@ -75,7 +78,9 @@ function MainApp({ user, onLogout }: { user: any; onLogout: () => void }) {
               </View>
             ),
             headerRight: () => (
-              <TouchableOpacity onPress={onLogout} style={{ marginRight: 16, backgroundColor: 'rgba(255,255,255,0.2)', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 20 }}>
+              <TouchableOpacity
+                onPress={onLogout}
+                style={{ marginRight: 16, backgroundColor: 'rgba(255,255,255,0.2)', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 20 }}>
                 <Text style={{ color: '#fff', fontSize: 12, fontWeight: '600' }}>Logout</Text>
               </TouchableOpacity>
             ),
@@ -101,15 +106,29 @@ function MainApp({ user, onLogout }: { user: any; onLogout: () => void }) {
   );
 }
 
+type AppState = 'splash' | 'login' | 'app';
+
 export default function App() {
+  const [state, setState] = useState<AppState>('splash');
   const [user, setUser] = useState<any>(null);
 
-  if (!user) return (
-    <>
-      <StatusBar style="light" />
-      <LoginScreen onLogin={setUser} />
-    </>
-  );
+  if (state === 'splash') {
+    return (
+      <>
+        <StatusBar style="light" />
+        <SplashScreen onDone={() => setState('login')} />
+      </>
+    );
+  }
 
-  return <MainApp user={user} onLogout={() => setUser(null)} />;
+  if (state === 'login') {
+    return (
+      <>
+        <StatusBar style="light" />
+        <LoginScreen onLogin={(u) => { setUser(u); setState('app'); }} />
+      </>
+    );
+  }
+
+  return <MainApp user={user} onLogout={() => { setUser(null); setState('login'); }} />;
 }
